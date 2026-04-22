@@ -47,9 +47,14 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">¿Por qué elegir UniGlobal?</h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-lg mb-8">
               Nos enfocamos en un desarrollo completo del individuo, combinando excelencia académica con una sólida base moral y espiritual.
             </p>
+            <Link href="/nosotros">
+              <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8">
+                Conoce más <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
