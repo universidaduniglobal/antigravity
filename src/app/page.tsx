@@ -104,14 +104,17 @@ export default function Home() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="group relative overflow-hidden rounded-[2rem] bg-primary text-primary-foreground flex flex-col justify-end min-h-[450px]">
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/80 to-transparent z-10"></div>
-              
-              <div className="absolute inset-0 z-0 flex justify-center items-center opacity-30 group-hover:scale-105 transition-transform duration-700 bg-slate-900">
-                 <div className="flex gap-8">
-                   <BookOpen className="w-32 h-32 opacity-20" />
-                   <HeartHandshake className="w-32 h-32 opacity-20" />
-                 </div>
+            <div className="group relative overflow-hidden rounded-[2rem] bg-primary text-primary-foreground flex flex-col justify-end min-h-[450px] shadow-xl">
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/images/degree-bg.png"
+                  alt="Estudiante tecleando en laptop y estudiando"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                {/* Different blue filter but keeping text legible */}
+                <div className="absolute inset-0 bg-blue-900/40 mix-blend-multiply"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A2A56] via-[#0A2A56]/80 to-transparent"></div>
               </div>
               
               <div className="relative z-20 p-10 md:p-14 mt-auto">
