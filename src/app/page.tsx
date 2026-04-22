@@ -103,48 +103,33 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Carrera 1 */}
-            <div className="group relative overflow-hidden rounded-[2rem] bg-primary text-primary-foreground flex flex-col justify-end min-h-[400px]">
+          <div className="max-w-4xl mx-auto">
+            <div className="group relative overflow-hidden rounded-[2rem] bg-primary text-primary-foreground flex flex-col justify-end min-h-[450px]">
               <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/80 to-transparent z-10"></div>
               
               <div className="absolute inset-0 z-0 flex justify-center items-center opacity-30 group-hover:scale-105 transition-transform duration-700 bg-slate-900">
-                 <BookOpen className="w-48 h-48 opacity-20" />
+                 <div className="flex gap-8">
+                   <BookOpen className="w-32 h-32 opacity-20" />
+                   <HeartHandshake className="w-32 h-32 opacity-20" />
+                 </div>
               </div>
               
-              <div className="relative z-20 p-10 mt-auto">
+              <div className="relative z-20 p-10 md:p-14 mt-auto">
                 <div className="bg-accent/20 text-accent border border-accent/30 w-fit px-4 py-1.5 rounded-full text-xs font-bold tracking-widest mb-5 backdrop-blur-md">
-                  LICENCIATURA
+                  LICENCIATURA INTEGRAL
                 </div>
-                <h3 className="text-3xl font-bold mb-3">Teología</h3>
-                <p className="text-primary-foreground/80 mb-8 leading-relaxed max-w-md">
-                  Profundiza en el conocimiento de la palabra y prepárate para el ministerio pastoral, la enseñanza o el liderazgo en tu comunidad.
+                <h3 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">Teología y Consejería para la Familia</h3>
+                <p className="text-primary-foreground/80 mb-8 leading-relaxed max-w-2xl text-lg">
+                  Profundiza en el conocimiento de la palabra y adquiere las herramientas psicológicas y espirituales para restaurar relaciones, guiando a las familias hacia la sanidad integral con una sólida base bíblica.
                 </p>
-                <Button variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90 font-medium px-6">
-                  Ver Plan de Estudios
-                </Button>
-              </div>
-            </div>
-
-            {/* Carrera 2 */}
-            <div className="group relative overflow-hidden rounded-[2rem] bg-secondary text-secondary-foreground border border-border flex flex-col justify-end min-h-[400px]">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
-              
-              <div className="absolute inset-0 z-0 flex justify-center items-center group-hover:scale-105 transition-transform duration-700 bg-slate-100 dark:bg-slate-800">
-                 <HeartHandshake className="w-48 h-48 opacity-10 text-primary" />
-              </div>
-              
-              <div className="relative z-20 p-10 mt-auto">
-                <div className="bg-primary/90 text-white border border-primary w-fit px-4 py-1.5 rounded-full text-xs font-bold tracking-widest mb-5 backdrop-blur-md group-hover:bg-accent group-hover:text-primary group-hover:border-accent transition-colors duration-300">
-                  LICENCIATURA
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90 font-medium px-8 h-12">
+                    Ver Plan de Estudios
+                  </Button>
+                  <Button variant="outline" className="rounded-full border-primary-foreground/30 hover:bg-white/10 font-medium px-8 h-12">
+                    Descargar Folleto
+                  </Button>
                 </div>
-                <h3 className="text-3xl font-bold mb-3 text-white drop-shadow-md">Consejería para la Familia</h3>
-                <p className="text-white/90 mb-8 leading-relaxed max-w-md drop-shadow-sm">
-                  Adquiere las herramientas para restaurar relaciones y guiar a las familias hacia la sanidad integral con base bíblica.
-                </p>
-                <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 border border-white/10 font-medium px-6">
-                  Ver Plan de Estudios
-                </Button>
               </div>
             </div>
           </div>

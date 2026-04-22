@@ -53,8 +53,7 @@ export function Footer() {
         <div>
           <h3 className="font-semibold text-lg mb-4 text-white">Oferta Académica</h3>
           <ul className="space-y-3 text-primary-foreground/80 text-sm">
-            <li><Link href="#" className="hover:text-accent transition-colors">Licenciatura en Teología</Link></li>
-            <li><Link href="#" className="hover:text-accent transition-colors">Consejería para la Familia</Link></li>
+            <li><Link href="#" className="hover:text-accent transition-colors">Licenciatura en Teología y Consejería para la Familia</Link></li>
             <li><Link href="#" className="hover:text-accent transition-colors">Admisiones</Link></li>
             <li><Link href="#" className="hover:text-accent transition-colors">Becas</Link></li>
           </ul>
