@@ -146,7 +146,7 @@ export default function Home() {
             src="/images/cta-bg.png"
             alt="Graduados de UniGlobal celebrando"
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
           />
           {/* Overlay to make text pop */}
           <div className="absolute inset-0 bg-primary/80 backdrop-blur-[2px] mix-blend-multiply"></div>
