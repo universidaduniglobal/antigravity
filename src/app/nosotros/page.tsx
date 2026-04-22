@@ -1,5 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Nosotros | Universidad UniGlobal",
@@ -20,12 +21,22 @@ export default function NosotrosPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header Section */}
-      <section className="bg-primary text-primary-foreground py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-accent rounded-full opacity-10 blur-3xl"></div>
+      <section className="relative py-24 md:py-36 overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/nosotros-hero.png"
+            alt="Estudiantes leyendo en el campus"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-primary/70 backdrop-blur-[2px]"></div>
+        </div>
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Sobre UniGlobal</h1>
-            <p className="text-xl text-primary-foreground/80">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-md">Sobre UniGlobal</h1>
+            <p className="text-xl text-white/90 drop-shadow-sm">
               Formación integral de excelencia fundamentada en valores cristianos.
             </p>
           </div>
