@@ -137,21 +137,29 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-accent rounded-full opacity-20 blur-3xl mix-blend-screen"></div>
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 bg-accent rounded-full opacity-10 blur-3xl mix-blend-screen"></div>
+      <section className="py-32 relative overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/cta-bg.png"
+            alt="Graduados de UniGlobal celebrando"
+            fill
+            className="object-cover object-top"
+          />
+          {/* Overlay to make text pop */}
+          <div className="absolute inset-0 bg-primary/80 backdrop-blur-[2px] mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent"></div>
+        </div>
         
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Tu momento es ahora</h2>
-          <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-white drop-shadow-md">Tu momento es ahora</h2>
+          <p className="text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-sm font-medium">
             Únete a la nueva generación de profesionales con propósito. El proceso de admisión para el próximo ciclo escolar está abierto.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent text-primary font-bold hover:bg-accent/90 rounded-full px-8 text-lg h-14 shadow-lg shadow-accent/20">
+            <Button size="lg" className="bg-accent text-primary font-bold hover:bg-accent/90 rounded-full px-8 text-lg h-14 shadow-lg shadow-accent/20 transition-transform hover:scale-105">
               Solicitar Información
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 text-lg h-14 border-primary-foreground/30 text-white hover:bg-white/10 backdrop-blur-sm">
+            <Button size="lg" variant="outline" className="rounded-full px-8 text-lg h-14 border-white/50 text-white hover:bg-white/20 backdrop-blur-sm transition-colors">
               Requisitos de Admisión
             </Button>
           </div>
