@@ -58,35 +58,35 @@ export default function NosotrosPage() {
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               {/* Misión */}
-              <div className="bg-muted/30 p-8 rounded-3xl border border-border/50">
-                <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center text-sm">01</span>
+              <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border-b-[6px] border-b-blue-600/20 hover:-translate-y-1 transition-transform duration-300">
+                <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm">01</span>
                   NUESTRA MISIÓN
                 </h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                   Formar profesionistas íntegros, competentes y comprometidos con la excelencia académica, fundamentados en principios cristianos, que contribuyan al desarrollo de la sociedad global mediante el servicio, la ética y el liderazgo inspirado en la fe.
                 </p>
               </div>
 
               {/* Visión */}
-              <div className="bg-primary/5 p-8 rounded-3xl border border-primary/10">
-                <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm">02</span>
+              <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border-b-[6px] border-b-blue-600/20 hover:-translate-y-1 transition-transform duration-300">
+                <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm">02</span>
                   NUESTRA VISIÓN
                 </h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                   Ser una institución cristiana de educación superior reconocida en México y a nivel internacional por su calidad académica, innovación educativa y compromiso con la formación de líderes transformadores, que impacten positivamente en la iglesia, la comunidad y la nación, promoviendo valores de fe, justicia y amor al prójimo.
                 </p>
               </div>
             </div>
 
             {/* Valores */}
-            <div className="bg-background border border-border p-8 md:p-12 rounded-3xl shadow-sm text-center">
-              <h2 className="text-3xl font-bold text-primary mb-8">NUESTROS VALORES</h2>
+            <div className="bg-white dark:bg-slate-900 p-8 md:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border-b-[6px] border-b-blue-600/20 text-center hover:-translate-y-1 transition-transform duration-300">
+              <h2 className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-8">NUESTROS VALORES</h2>
               <div className="flex flex-wrap justify-center gap-4">
                 {valores.map((valor, index) => (
-                  <div key={index} className="flex items-center gap-2 bg-muted px-6 py-3 rounded-full text-foreground font-medium hover:bg-accent/10 hover:text-primary transition-colors border border-border/50">
-                    <CheckCircle2 className="w-5 h-5 text-accent" />
+                  <div key={index} className="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 px-6 py-3 rounded-full text-slate-700 dark:text-slate-200 font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 transition-colors border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <CheckCircle2 className="w-5 h-5 text-blue-500" />
                     {valor}
                   </div>
                 ))}
