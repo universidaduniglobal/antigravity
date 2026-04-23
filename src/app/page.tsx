@@ -126,16 +126,16 @@ export default function Home() {
                   Profundiza en el conocimiento de la palabra y adquiere las herramientas psicológicas y espirituales para restaurar relaciones, guiando a las familias hacia la sanidad integral con una sólida base bíblica.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/carreras/teologia">
-                    <Button variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90 font-bold px-8 h-12">
+                  <Button variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90 font-bold px-8 h-12" asChild>
+                    <Link href="/carreras/teologia">
                       Conoce Más
-                    </Button>
-                  </Link>
-                  <a href="/docs/folleto-teologia.pdf" download>
-                    <Button variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90 font-bold px-8 h-12 w-full sm:w-auto">
+                    </Link>
+                  </Button>
+                  <Button variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90 font-bold px-8 h-12 w-full sm:w-auto" asChild>
+                    <a href="/docs/folleto-teologia.pdf" download="folleto-teologia.pdf" target="_blank" rel="noopener noreferrer">
                       Descargar Folleto
-                    </Button>
-                  </a>
+                    </a>
+                  </Button>
                 </div>
               </div>
             </div>
