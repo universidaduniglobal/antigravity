@@ -126,9 +126,11 @@ export default function Home() {
                   Profundiza en el conocimiento de la palabra y adquiere las herramientas psicológicas y espirituales para restaurar relaciones, guiando a las familias hacia la sanidad integral con una sólida base bíblica.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90 font-medium px-8 h-12">
-                    Ver Plan de Estudios
-                  </Button>
+                  <Link href="/carreras/teologia">
+                    <Button variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90 font-medium px-8 h-12">
+                      CONOCE MÁS
+                    </Button>
+                  </Link>
                   <Button variant="outline" className="rounded-full border-primary-foreground/30 hover:bg-white/10 font-medium px-8 h-12">
                     Descargar Folleto
                   </Button>
