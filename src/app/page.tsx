@@ -127,13 +127,15 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/carreras/teologia">
-                    <Button variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90 font-medium px-8 h-12">
-                      CONOCE MÁS
+                    <Button variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90 font-bold px-8 h-12">
+                      Conoce Más
                     </Button>
                   </Link>
-                  <Button variant="outline" className="rounded-full border-primary-foreground/30 hover:bg-white/10 font-medium px-8 h-12">
-                    Descargar Folleto
-                  </Button>
+                  <a href="/docs/folleto-teologia.pdf" download>
+                    <Button variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90 font-bold px-8 h-12 w-full sm:w-auto">
+                      Descargar Folleto
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>
