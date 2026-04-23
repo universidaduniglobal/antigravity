@@ -38,7 +38,7 @@ export function Footer() {
             Descubre tu futuro, construye tu presente. Universidad de desarrollo integral con valores cristianos.
           </p>
           <div className="flex gap-4">
-            <Link href="#" className="bg-primary-foreground/10 p-2 rounded-full hover:bg-accent hover:text-primary transition-all">
+            <Link href="https://www.facebook.com/profile.php?id=61583471280190" target="_blank" rel="noopener noreferrer" className="bg-primary-foreground/10 p-2 rounded-full hover:bg-accent hover:text-primary transition-all">
               <Facebook size={20} />
             </Link>
             <Link href="#" className="bg-primary-foreground/10 p-2 rounded-full hover:bg-accent hover:text-primary transition-all">
@@ -53,8 +53,8 @@ export function Footer() {
         <div>
           <h3 className="font-semibold text-lg mb-4 text-white">Oferta Académica</h3>
           <ul className="space-y-3 text-primary-foreground/80 text-sm">
-            <li><Link href="#" className="hover:text-accent transition-colors">Licenciatura en Teología y Consejería para la Familia</Link></li>
-            <li><Link href="#" className="hover:text-accent transition-colors">Admisiones</Link></li>
+            <li><Link href="/carreras/teologia" className="hover:text-accent transition-colors">Licenciatura en Teología y Consejería para la Familia</Link></li>
+            <li><Link href="/#admisiones" className="hover:text-accent transition-colors">Admisiones</Link></li>
             <li><Link href="#" className="hover:text-accent transition-colors">Becas</Link></li>
           </ul>
         </div>
@@ -64,15 +64,15 @@ export function Footer() {
           <ul className="space-y-3 text-primary-foreground/80 text-sm">
             <li className="flex items-start gap-3">
               <MapPin size={18} className="text-accent shrink-0 mt-0.5" />
-              <span>Campus Principal<br/>Ciudad, País</span>
+              <span>Hermosillo, Sonora<br/>México</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={18} className="text-accent shrink-0" />
-              <span>+52 (55) 1234-5678</span>
+              <span>+52 662 405 3624</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail size={18} className="text-accent shrink-0" />
-              <span>contacto@uniglobal.edu.mx</span>
+              <span>uniglobalmx@gmail.com</span>
             </li>
           </ul>
         </div>

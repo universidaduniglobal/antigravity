@@ -32,7 +32,7 @@ export default function NosotrosPage() {
           />
           <div className="absolute inset-0 bg-primary/70 backdrop-blur-[2px]"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-md">Sobre UniGlobal</h1>
@@ -60,7 +60,7 @@ export default function NosotrosPage() {
               {/* Misión */}
               <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border-b-[6px] border-b-blue-600/20 hover:-translate-y-1 transition-transform duration-300">
                 <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-4 flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm">01</span>
+                  <span className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm">M</span>
                   NUESTRA MISIÓN
                 </h2>
                 <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -71,7 +71,7 @@ export default function NosotrosPage() {
               {/* Visión */}
               <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border-b-[6px] border-b-blue-600/20 hover:-translate-y-1 transition-transform duration-300">
                 <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-4 flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm">02</span>
+                  <span className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm">V</span>
                   NUESTRA VISIÓN
                 </h2>
                 <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -92,7 +92,7 @@ export default function NosotrosPage() {
                 ))}
               </div>
             </div>
-            
+
           </div>
         </div>
       </section>
