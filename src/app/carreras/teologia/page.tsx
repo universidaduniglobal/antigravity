@@ -127,13 +127,15 @@ export default function TeologiaPage() {
                   </p>
                 </div>
 
-                <form className="space-y-6">
+                <form action="https://formspree.io/f/mqewwnan" method="POST" className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="nombre" className="text-sm font-medium text-white/90">Nombre Completo</label>
                       <input 
                         type="text" 
                         id="nombre" 
+                        name="NombreCompleto"
+                        required
                         className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                         placeholder="Ej. Juan Pérez"
                       />
@@ -143,6 +145,8 @@ export default function TeologiaPage() {
                       <input 
                         type="tel" 
                         id="telefono" 
+                        name="Telefono"
+                        required
                         className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                         placeholder="Ej. 55 1234 5678"
                       />
@@ -154,6 +158,8 @@ export default function TeologiaPage() {
                     <input 
                       type="email" 
                       id="correo" 
+                      name="Email"
+                      required
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                       placeholder="tu@correo.com"
                     />
@@ -163,14 +169,16 @@ export default function TeologiaPage() {
                     <label htmlFor="conocido" className="text-sm font-medium text-white/90">¿Cómo nos has conocido?</label>
                     <select 
                       id="conocido" 
+                      name="ComoNosConociste"
+                      required
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-accent transition-all appearance-none"
                     >
                       <option value="" className="text-slate-900">Selecciona una opción...</option>
-                      <option value="redes" className="text-slate-900">Redes Sociales (Facebook, Instagram)</option>
-                      <option value="recomendacion" className="text-slate-900">Recomendación de un amigo/pastor</option>
-                      <option value="busqueda" className="text-slate-900">Búsqueda en Google</option>
-                      <option value="evento" className="text-slate-900">Evento / Conferencia</option>
-                      <option value="otro" className="text-slate-900">Otro</option>
+                      <option value="Redes Sociales" className="text-slate-900">Redes Sociales (Facebook, Instagram)</option>
+                      <option value="Recomendación" className="text-slate-900">Recomendación de un amigo/pastor</option>
+                      <option value="Búsqueda en Google" className="text-slate-900">Búsqueda en Google</option>
+                      <option value="Evento / Conferencia" className="text-slate-900">Evento / Conferencia</option>
+                      <option value="Otro" className="text-slate-900">Otro</option>
                     </select>
                   </div>
 
@@ -178,13 +186,14 @@ export default function TeologiaPage() {
                     <label htmlFor="comentarios" className="text-sm font-medium text-white/90">Comentarios</label>
                     <textarea 
                       id="comentarios" 
+                      name="Comentarios"
                       rows={4}
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-accent transition-all resize-none"
                       placeholder="Escribe tus dudas aquí..."
                     ></textarea>
                   </div>
 
-                  <Button className="w-full h-14 text-lg font-bold bg-accent text-primary hover:bg-accent/90 rounded-xl shadow-lg transition-transform hover:scale-[1.02]">
+                  <Button type="submit" className="w-full h-14 text-lg font-bold bg-accent text-primary hover:bg-accent/90 rounded-xl shadow-lg transition-transform hover:scale-[1.02]">
                     Enviar Información
                   </Button>
                 </form>
