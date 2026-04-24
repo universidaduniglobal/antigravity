@@ -37,12 +37,12 @@ export default function Home() {
                 Inicia tu proceso
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Link>
-              <Link 
+              <a 
                 href="#carreras"
                 className="inline-flex items-center justify-center whitespace-nowrap transition-colors rounded-full px-8 text-lg h-14 border border-primary text-primary hover:bg-primary/5 bg-background/50 backdrop-blur-sm font-medium"
               >
                 Conoce nuestras carreras
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -174,9 +174,12 @@ export default function Home() {
             Únete a la nueva generación de profesionales con propósito. El proceso de admisión para el próximo ciclo escolar está abierto.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent text-primary font-bold hover:bg-accent/90 rounded-full px-8 text-lg h-14 shadow-lg shadow-accent/20 transition-transform hover:scale-105">
+            <Link 
+              href="/carreras/teologia#informacion"
+              className="inline-flex items-center justify-center whitespace-nowrap bg-accent text-primary font-bold hover:bg-accent/90 rounded-full px-8 text-lg h-14 shadow-lg shadow-accent/20 transition-transform hover:scale-105"
+            >
               Solicitar Información
-            </Button>
+            </Link>
             <Link 
               href="/inscripcion"
               className="inline-flex items-center justify-center whitespace-nowrap transition-colors rounded-full px-8 text-lg h-14 bg-white text-primary hover:bg-white/90 font-bold"
