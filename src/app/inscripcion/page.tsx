@@ -10,15 +10,8 @@ export const metadata: Metadata = {
 export default function InscripcionPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950">
-      {/* Header */}
-      <section className="pt-32 pb-16 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Proceso de Admisión</h1>
-          <p className="text-lg text-primary-foreground/80">
-            Estás a un paso de iniciar tu preparación ministerial y profesional.
-          </p>
-        </div>
-      </section>
+      {/* Spacer for navbar */}
+      <div className="pt-24"></div>
 
       {/* Proceso de Admisión */}
       <section className="py-16 md:py-24 bg-white dark:bg-slate-900">
