@@ -20,8 +20,138 @@ export default function InscripcionPage() {
         </div>
       </section>
 
+      {/* Proceso de Admisión */}
+      <section className="py-16 md:py-24 bg-white dark:bg-slate-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Título de sección */}
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">PROCESO DE ADMISIÓN</h2>
+              <p className="text-2xl text-blue-600 dark:text-blue-400 font-medium italic">&ldquo;Tu camino empieza aquí&rdquo;</p>
+              <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
+                Para garantizar la excelencia académica y ministerial, solicitamos a nuestros aspirantes completar los siguientes pasos y documentos:
+              </p>
+            </div>
+
+            {/* 1. Documentación Académica */}
+            <div className="mb-12">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shrink-0">1</span>
+                <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-100">Documentación Académica</h3>
+              </div>
+              <div className="grid md:grid-cols-2 gap-4 pl-14">
+                <div className="bg-slate-50 dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Título de Bachillerato / Secundaria</h4>
+                  <p className="text-sm text-muted-foreground">Copia legalizada y original para cotejo.</p>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Certificado de Calificaciones</h4>
+                  <p className="text-sm text-muted-foreground">Registro oficial de notas del último nivel de estudios.</p>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Documento de Identidad</h4>
+                  <p className="text-sm text-muted-foreground">Copia ampliada de tu cédula, INE o pasaporte vigente.</p>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Fotografías</h4>
+                  <p className="text-sm text-muted-foreground">2 fotos tamaño carnet (fondo blanco, vestimenta formal).</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Perfil Ministerial y Personal */}
+            <div className="mb-12">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shrink-0">2</span>
+                <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-100">Perfil Ministerial y Personal</h3>
+              </div>
+              <div className="grid md:grid-cols-1 gap-4 pl-14">
+                <div className="bg-slate-50 dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Carta de Recomendación</h4>
+                  <p className="text-sm text-muted-foreground">Emitida por tu pastor o líder de comunidad, avalando tu compromiso y carácter cristiano.</p>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Testimonio de Vida</h4>
+                  <p className="text-sm text-muted-foreground">Un escrito breve (máximo 2 páginas) sobre tu llamado al servicio y por qué deseas estudiar Consejería Familiar.</p>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Entrevista de Admisión</h4>
+                  <p className="text-sm text-muted-foreground">Una charla presencial o virtual con el Comité Académico para conocer tu perfil y expectativas.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. Salud y Bienestar */}
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shrink-0">3</span>
+                <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-100">Salud y Bienestar</h3>
+              </div>
+              <div className="pl-14">
+                <div className="bg-slate-50 dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Evaluación Psicobásica</h4>
+                  <p className="text-sm text-muted-foreground">Aplicada por la institución para asegurar que cuentas con las herramientas emocionales iniciales para el manejo de casos.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Fechas Importantes e Inversión */}
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              {/* Fechas */}
+              <div className="bg-primary text-primary-foreground p-8 rounded-3xl shadow-lg relative overflow-hidden">
+                <div className="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-accent rounded-full opacity-20 blur-2xl"></div>
+                <h3 className="text-xl font-bold mb-6 relative z-10 flex items-center gap-2">
+                  <CalendarCheck className="w-6 h-6 text-accent" />
+                  Fechas Importantes (Ciclo 2025 - 2027)
+                </h3>
+                <ul className="space-y-4 relative z-10 text-primary-foreground/90">
+                  <li className="flex justify-between items-center border-b border-primary-foreground/10 pb-3">
+                    <span className="text-sm">Apertura de inscripciones</span>
+                    <span className="font-bold text-accent text-sm">[Día] de [Mes]</span>
+                  </li>
+                  <li className="flex justify-between items-center border-b border-primary-foreground/10 pb-3">
+                    <span className="text-sm">Límite para entrega de documentos</span>
+                    <span className="font-bold text-accent text-sm">[Día] de [Mes]</span>
+                  </li>
+                  <li className="flex justify-between items-center border-b border-primary-foreground/10 pb-3">
+                    <span className="text-sm">Semana de inducción</span>
+                    <span className="font-bold text-accent text-sm">[Día] de [Mes]</span>
+                  </li>
+                  <li className="flex justify-between items-center">
+                    <span className="text-sm">Inicio de clases</span>
+                    <span className="font-bold text-accent text-sm">[Día] de [Mes]</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Inversión */}
+              <div className="bg-blue-50 dark:bg-blue-950/30 p-8 rounded-3xl border border-blue-200 dark:border-blue-900/50 shadow-lg">
+                <h3 className="text-xl font-bold mb-6 text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                  <GraduationCap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  Inversión Educativa
+                </h3>
+                <div className="space-y-5">
+                  <div className="flex justify-between items-center border-b border-blue-200/50 dark:border-blue-800/30 pb-3">
+                    <span className="text-slate-600 dark:text-slate-300 text-sm">Matrícula única</span>
+                    <span className="font-bold text-blue-600 dark:text-blue-400 text-lg">$[Monto]</span>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-blue-200/50 dark:border-blue-800/30 pb-3">
+                    <span className="text-slate-600 dark:text-slate-300 text-sm">Mensualidad</span>
+                    <span className="font-bold text-blue-600 dark:text-blue-400 text-lg">$[Monto]</span>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground mt-6 italic">
+                  Pregunta por nuestro programa de becas por convenio ministerial y descuentos por pago de contado.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Main Form */}
-      <section className="py-12 md:py-20">
+      <section className="py-12 md:py-20 bg-slate-50 dark:bg-slate-950">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* 
