@@ -30,10 +30,13 @@ export default function Home() {
               Universidad de desarrollo integral con valores cristianos. Formamos profesionales para transformar el mundo.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 text-lg h-14 shadow-lg">
+              <Link 
+                href="/inscripcion"
+                className="inline-flex items-center justify-center whitespace-nowrap transition-colors bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 text-lg h-14 shadow-lg font-medium"
+              >
                 Inicia tu proceso
                 <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
+              </Link>
               <Button size="lg" variant="outline" className="rounded-full px-8 text-lg h-14 border-primary text-primary hover:bg-primary/5 bg-background/50 backdrop-blur-sm">
                 Conoce nuestras carreras
               </Button>
