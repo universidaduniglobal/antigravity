@@ -25,12 +25,10 @@ export default function InscripcionPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* 
-              NOTA PARA EL USUARIO:
-              Reemplaza "TU_ID_DE_FORMSPREE" en el action con tu ID real de Formspree. 
-              Asegúrate de que tu cuenta de Formspree permita la carga de archivos (multipart/form-data).
+              Formulario conectado a Formspree
             */}
             <form 
-              action="https://formspree.io/f/TU_ID_DE_FORMSPREE" 
+              action="https://formspree.io/f/xrerrjbk" 
               method="POST" 
               encType="multipart/form-data"
               className="space-y-12"
