@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { CheckCircle2, BookOpen, HeartHandshake, Users, GraduationCap, Clock, Award, Building } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -112,6 +113,16 @@ export default function TeologiaPage() {
                   <p className="text-muted-foreground text-sm">Licenciatura con RVOE oficial de la SEP. Sistema modular. ¡Puedes iniciar ya!</p>
                 </div>
               </div>
+            </div>
+
+            {/* Botón Plan de Estudios */}
+            <div className="text-center mb-16">
+              <Link
+                href="/carreras/teologia/plan-de-estudios"
+                className="inline-flex items-center justify-center whitespace-nowrap bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-10 text-lg h-14 shadow-lg font-bold transition-transform hover:scale-105"
+              >
+                Ver Plan de Estudios
+              </Link>
             </div>
 
             {/* Formulario de Contacto */}
