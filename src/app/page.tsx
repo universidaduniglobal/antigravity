@@ -37,9 +37,12 @@ export default function Home() {
                 Inicia tu proceso
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Link>
-              <Button size="lg" variant="outline" className="rounded-full px-8 text-lg h-14 border-primary text-primary hover:bg-primary/5 bg-background/50 backdrop-blur-sm">
+              <Link 
+                href="#carreras"
+                className="inline-flex items-center justify-center whitespace-nowrap transition-colors rounded-full px-8 text-lg h-14 border border-primary text-primary hover:bg-primary/5 bg-background/50 backdrop-blur-sm font-medium"
+              >
                 Conoce nuestras carreras
-              </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -174,9 +177,12 @@ export default function Home() {
             <Button size="lg" className="bg-accent text-primary font-bold hover:bg-accent/90 rounded-full px-8 text-lg h-14 shadow-lg shadow-accent/20 transition-transform hover:scale-105">
               Solicitar Información
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 text-lg h-14 border-white/50 text-white hover:bg-white/20 backdrop-blur-sm transition-colors">
+            <Link 
+              href="/inscripcion"
+              className="inline-flex items-center justify-center whitespace-nowrap transition-colors rounded-full px-8 text-lg h-14 bg-white text-primary hover:bg-white/90 font-bold"
+            >
               Requisitos de Admisión
-            </Button>
+            </Link>
           </div>
         </div>
       </section>
