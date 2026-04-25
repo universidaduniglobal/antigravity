@@ -36,30 +36,48 @@ export default function PortalLayout({
 
   useEffect(() => {
     const checkUser = async () => {
-      if (!supabase || !process.env.NEXT_PUBLIC_SUPABASE_URL) {
-        setLoading(false);
-        return;
-      }
-      const { data: { session } } = await supabase.auth.getSession();
-      
-      if (!session) {
-        if (pathname !== '/portal/login') {
-          router.push('/portal/login');
+      console.log('[Layout] Revisando usuario...');
+      try {
+        if (!supabase || !process.env.NEXT_PUBLIC_SUPABASE_URL) {
+          console.warn('[Layout] Supabase no configurado');
+          setLoading(false);
+          return;
         }
+
+        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+        
+        if (sessionError) throw sessionError;
+
+        if (!session) {
+          console.log('[Layout] No hay sesión activa');
+          if (pathname !== '/portal/login') {
+            router.push('/portal/login');
+          }
+          setLoading(false);
+          return;
+        }
+
+        console.log('[Layout] Sesión encontrada para:', session.user.email);
+        setUser(session.user);
+
+        const { data: profileData, error: profileError } = await supabase
+          .from('usuarios')
+          .select('*')
+          .eq('id', session.user.id)
+          .single();
+
+        if (profileError) {
+          console.error('[Layout] Error al obtener perfil:', profileError);
+          // No bloqueamos el login si falla el perfil, dejamos que pase con datos básicos
+          setProfile({ rol: 'Estudiante', nombre: 'Usuario', email: session.user.email });
+        } else {
+          setProfile(profileData);
+        }
+      } catch (err) {
+        console.error('[Layout] Error crítico:', err);
+      } finally {
         setLoading(false);
-        return;
       }
-
-      setUser(session.user);
-
-      const { data: profileData } = await supabase
-        .from('usuarios')
-        .select('*')
-        .eq('id', session.user.id)
-        .single();
-
-      setProfile(profileData);
-      setLoading(false);
     };
 
     checkUser();
