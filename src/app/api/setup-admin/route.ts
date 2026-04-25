@@ -9,6 +9,14 @@ export async function GET() {
   const adminEmail = 'admin@uniglobal.edu.mx';
   const adminPassword = 'Un1Global';
 
+  // Debug variables (Safe)
+  const debugInfo = {
+    hasUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+    hasServiceKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+    urlPrefix: process.env.NEXT_PUBLIC_SUPABASE_URL?.substring(0, 15),
+    keyPrefix: process.env.SUPABASE_SERVICE_ROLE_KEY?.substring(0, 10),
+  };
+
   try {
     let userId: string | undefined;
 
@@ -20,22 +28,32 @@ export async function GET() {
     });
 
     if (authError) {
-      if (authError.message.includes('already registered')) {
+      if (authError.message.includes('already registered') || authError.message.includes('already exists')) {
         // If already exists, find the user to get the ID
         const { data: usersData, error: listError } = await supabase.auth.admin.listUsers();
-        if (listError) return NextResponse.json({ error: 'Auth exists but could not list users: ' + listError.message }, { status: 400 });
+        if (listError) return NextResponse.json({ 
+          error: 'Auth exists but could not list users', 
+          listError: listError.message,
+          debug: debugInfo 
+        }, { status: 400 });
         
         const existingUser = usersData.users.find(u => u.email === adminEmail);
         userId = existingUser?.id;
       } else {
-        return NextResponse.json({ error: 'Auth Error: ' + authError.message }, { status: 400 });
+        return NextResponse.json({ 
+          error: 'Auth Error: ' + authError.message,
+          debug: debugInfo
+        }, { status: 400 });
       }
     } else {
       userId = authData.user?.id;
     }
 
     if (!userId) {
-      return NextResponse.json({ error: 'Could not determine User ID' }, { status: 400 });
+      return NextResponse.json({ 
+        error: 'Could not determine User ID',
+        debug: debugInfo 
+      }, { status: 400 });
     }
 
     // 2. Create/Update profile in 'usuarios' table
@@ -53,18 +71,20 @@ export async function GET() {
     if (profileError) {
       return NextResponse.json({ 
         error: 'Profile Error: ' + profileError.message,
-        hint: 'Asegúrate de haber ejecutado el SQL en el editor de Supabase para crear la tabla "usuarios".'
+        hint: 'Revisa si la tabla "usuarios" existe en Supabase.',
+        debug: debugInfo
       }, { status: 400 });
     }
 
     return NextResponse.json({ 
       message: 'Admin user created/updated successfully',
-      email: adminEmail,
-      password: adminPassword,
-      role: 'Administrador'
+      debug: debugInfo
     });
 
   } catch (err: any) {
-    return NextResponse.json({ error: 'Server Error: ' + err.message }, { status: 500 });
+    return NextResponse.json({ 
+      error: 'Server Error: ' + err.message,
+      debug: debugInfo
+    }, { status: 500 });
   }
 }
