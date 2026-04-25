@@ -44,17 +44,17 @@ export default function PortalLayout({
           return;
         }
 
-        // Timeout de 5 segundos para getUser
+        // Timeout de 7 segundos para getUser
         const userPromise = supabase.auth.getUser();
         const timeoutPromise = new Promise((_, reject) => 
-          setTimeout(() => reject(new Error('Timeout de sesión')), 5000)
+          setTimeout(() => reject(new Error('Timeout de sesión')), 7000)
         );
 
-        const { data: { user }, error: userError }: any = await Promise.race([userPromise, timeoutPromise]);
+        const { data: { user: userData }, error: userError }: any = await Promise.race([userPromise, timeoutPromise]);
         
         if (userError) throw userError;
 
-        if (!user) {
+        if (!userData) {
           console.log('[Layout] No hay sesión activa');
           if (pathname !== '/portal/login') {
             router.push('/portal/login');
@@ -63,24 +63,27 @@ export default function PortalLayout({
           return;
         }
 
-        console.log('[Layout] Usuario encontrado:', user.email);
-        setUser(user);
+        console.log('[Layout] Usuario encontrado:', userData.email);
+        setUser(userData);
 
         const { data: profileData, error: profileError } = await supabase
           .from('usuarios')
           .select('*')
-          .eq('id', session.user.id)
+          .eq('id', userData.id)
           .single();
 
         if (profileError) {
           console.error('[Layout] Error al obtener perfil:', profileError);
-          // No bloqueamos el login si falla el perfil, dejamos que pase con datos básicos
-          setProfile({ rol: 'Estudiante', nombre: 'Usuario', email: session.user.email });
+          // Fallback para no bloquear
+          setProfile({ rol: 'Estudiante', nombre: 'Usuario', email: userData.email });
         } else {
           setProfile(profileData);
         }
       } catch (err) {
-        console.error('[Layout] Error crítico:', err);
+        console.error('[Layout] Error crítico en layout:', err);
+        if (pathname !== '/portal/login') {
+          router.push('/portal/login');
+        }
       } finally {
         setLoading(false);
       }
@@ -113,12 +116,16 @@ export default function PortalLayout({
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
+    router.push('/portal/login');
   };
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950">
-        <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+          <p className="text-slate-500 font-medium animate-pulse">Cargando portal...</p>
+        </div>
       </div>
     );
   }
