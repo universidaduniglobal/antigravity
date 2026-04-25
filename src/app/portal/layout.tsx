@@ -60,7 +60,7 @@ export default function PortalLayout({
 
     checkUser();
 
-    const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
+    const { data: authListener } = supabase.auth.onAuthStateChange(async (event: string, session: any) => {
       if (event === 'SIGNED_OUT') {
         setUser(null);
         setProfile(null);
