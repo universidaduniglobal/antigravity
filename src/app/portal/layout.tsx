@@ -44,13 +44,7 @@ export default function PortalLayout({
           return;
         }
 
-        // Timeout de 7 segundos para getUser
-        const userPromise = supabase.auth.getUser();
-        const timeoutPromise = new Promise((_, reject) => 
-          setTimeout(() => reject(new Error('Timeout de sesión')), 7000)
-        );
-
-        const { data: { user: userData }, error: userError }: any = await Promise.race([userPromise, timeoutPromise]);
+        const { data: { user: userData }, error: userError } = await supabase.auth.getUser();
         
         if (userError) throw userError;
 

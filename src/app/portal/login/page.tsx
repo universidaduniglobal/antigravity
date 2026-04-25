@@ -31,17 +31,10 @@ export default function LoginPage() {
     try {
       console.log('Iniciando sesión para:', loginEmail);
       
-      // Timeout de 10 segundos
-      const loginPromise = supabase.auth.signInWithPassword({
+      const { data, error: authError } = await supabase.auth.signInWithPassword({
         email: loginEmail,
         password: password,
       });
-
-      const timeoutPromise = new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('Tiempo de espera agotado. Revisa tu conexión.')), 10000)
-      );
-
-      const { data, error: authError }: any = await Promise.race([loginPromise, timeoutPromise]);
 
       if (authError) throw authError;
 
