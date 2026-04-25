@@ -33,9 +33,11 @@ export function Navbar() {
           <Link href="/nosotros" className="text-sm font-medium hover:text-accent transition-colors">Nosotros</Link>
           <Link href="/#carreras" className="text-sm font-medium hover:text-accent transition-colors">Carreras</Link>
           <Link href="/#admisiones" className="text-sm font-medium hover:text-accent transition-colors">Admisiones</Link>
-          <Button className="bg-white text-primary hover:bg-white/90 rounded-full px-6 font-semibold">
-            Ingreso al Portal
-          </Button>
+          <Link href="/portal/login">
+            <Button className="bg-white text-primary hover:bg-white/90 rounded-full px-6 font-semibold">
+              Ingreso al Portal
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>
