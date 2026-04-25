@@ -103,16 +103,16 @@ export default function HorarioEstudiantePage() {
 
               <div className="p-6 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800">
                 {asig.google_meet_url ? (
-                  <Button 
-                    asChild
-                    className="w-full bg-emerald-600 text-white font-bold rounded-2xl py-6 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20"
+                  <a 
+                    href={asig.google_meet_url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-full bg-emerald-600 text-white font-bold rounded-2xl py-4 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all"
                   >
-                    <a href={asig.google_meet_url} target="_blank" rel="noopener noreferrer">
-                      <Video size={18} className="mr-2" />
-                      Entrar a Google Meet
-                      <ExternalLink size={14} className="ml-auto opacity-50" />
-                    </a>
-                  </Button>
+                    <Video size={18} className="mr-2" />
+                    Entrar a Google Meet
+                    <ExternalLink size={14} className="ml-auto opacity-50" />
+                  </a>
                 ) : (
                   <Button disabled className="w-full bg-slate-200 text-slate-500 font-bold rounded-2xl py-6 cursor-not-allowed">
                     Meet No Disponible
