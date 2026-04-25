@@ -63,8 +63,18 @@ export default function LoginPage() {
         }
 
         const role = profile.rol.toLowerCase();
-        console.log('Redirigiendo a:', `/portal/${role}`);
-        router.push(`/portal/${role}`);
+        const targetUrl = `/portal/${role}`;
+        console.log('Redirigiendo a:', targetUrl);
+        
+        // Intento de redirección normal
+        router.push(targetUrl);
+        
+        // Fallback agresivo: si después de 1 segundo no ha cambiado, forzar recarga
+        setTimeout(() => {
+          if (window.location.pathname !== targetUrl) {
+            window.location.href = targetUrl;
+          }
+        }, 1000);
       }
     } catch (err: any) {
       console.error('Captura de error en login:', err);
