@@ -9,7 +9,6 @@ import {
   ArrowLeft, 
   BookOpen,
   Clock,
-  Youtube,
   Lock,
   Loader2
 } from 'lucide-react';
@@ -124,7 +123,7 @@ export default function ClasesEstudiantePage() {
             </div>
           ) : (
             <div className="aspect-video bg-slate-100 dark:bg-slate-900 rounded-[3rem] border border-dashed border-slate-300 dark:border-slate-800 flex flex-col items-center justify-center text-slate-400 gap-4">
-              <Youtube size={64} className="opacity-20" />
+              <Video size={64} className="opacity-20" />
               <p className="font-bold">Selecciona una clase de la lista para comenzar.</p>
             </div>
           )}
