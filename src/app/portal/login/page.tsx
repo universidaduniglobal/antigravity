@@ -29,29 +29,46 @@ export default function LoginPage() {
     }
 
     try {
-      const { data, error: authError } = await supabase.auth.signInWithPassword({
+      console.log('Iniciando sesión para:', loginEmail);
+      
+      // Timeout de 10 segundos
+      const loginPromise = supabase.auth.signInWithPassword({
         email: loginEmail,
         password: password,
       });
 
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Tiempo de espera agotado. Revisa tu conexión.')), 10000)
+      );
+
+      const { data, error: authError }: any = await Promise.race([loginPromise, timeoutPromise]);
+
       if (authError) throw authError;
 
       if (data.user) {
-        // Fetch user role to redirect appropriately
+        console.log('Sesión iniciada, buscando perfil...');
         const { data: profile, error: profileError } = await supabase
           .from('usuarios')
           .select('rol')
           .eq('id', data.user.id)
           .single();
 
-        if (profileError) throw profileError;
+        if (profileError) {
+          console.error('Error de perfil:', profileError);
+          throw new Error('Usuario autenticado pero no se encontró su perfil en la tabla "usuarios". ¿Ejecutaste el SQL?');
+        }
 
-        // Redirect based on role
+        if (!profile || !profile.rol) {
+          throw new Error('El usuario no tiene un rol asignado.');
+        }
+
         const role = profile.rol.toLowerCase();
+        console.log('Redirigiendo a:', `/portal/${role}`);
         router.push(`/portal/${role}`);
       }
     } catch (err: any) {
-      setError(err.message || 'Error al iniciar sesión. Por favor, verifica tus credenciales.');
+      console.error('Captura de error en login:', err);
+      setError(err.message || 'Error al iniciar sesión. Por favor, intenta de nuevo.');
     } finally {
       setLoading(false);
     }
