@@ -36,6 +36,10 @@ export default function PortalLayout({
 
   useEffect(() => {
     const checkUser = async () => {
+      if (!supabase || !process.env.NEXT_PUBLIC_SUPABASE_URL) {
+        setLoading(false);
+        return;
+      }
       const { data: { session } } = await supabase.auth.getSession();
       
       if (!session) {
@@ -59,6 +63,8 @@ export default function PortalLayout({
     };
 
     checkUser();
+
+    if (!supabase || !process.env.NEXT_PUBLIC_SUPABASE_URL) return;
 
     const { data: authListener } = supabase.auth.onAuthStateChange(async (event: string, session: any) => {
       if (event === 'SIGNED_OUT') {

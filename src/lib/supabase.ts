@@ -1,17 +1,13 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder';
 
-export const supabase = supabaseUrl && supabaseAnonKey 
-  ? createClient(supabaseUrl, supabaseAnonKey)
-  : (null as any); // Fallback for build time
+// Create a single supabase client for interaction with your database
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Helper for server-side actions that need elevated privileges
 export const getSupabaseService = () => {
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
-  if (!supabaseUrl || !serviceKey) {
-    throw new Error('Supabase URL or Service Role Key is missing');
-  }
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder';
   return createClient(supabaseUrl, serviceKey);
 }

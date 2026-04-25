@@ -22,6 +22,12 @@ export default function LoginPage() {
     // Normalize 'Admin' username to an email if the user typed 'Admin'
     const loginEmail = email.toLowerCase() === 'admin' ? 'admin@uniglobal.edu.mx' : email;
 
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+      setError('Error de configuración: Las variables de entorno de Supabase no están configuradas en el servidor.');
+      setLoading(false);
+      return;
+    }
+
     try {
       const { data, error: authError } = await supabase.auth.signInWithPassword({
         email: loginEmail,
