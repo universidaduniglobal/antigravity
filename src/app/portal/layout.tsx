@@ -44,11 +44,17 @@ export default function PortalLayout({
           return;
         }
 
-        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-        
-        if (sessionError) throw sessionError;
+        // Timeout de 5 segundos para getUser
+        const userPromise = supabase.auth.getUser();
+        const timeoutPromise = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Timeout de sesión')), 5000)
+        );
 
-        if (!session) {
+        const { data: { user }, error: userError }: any = await Promise.race([userPromise, timeoutPromise]);
+        
+        if (userError) throw userError;
+
+        if (!user) {
           console.log('[Layout] No hay sesión activa');
           if (pathname !== '/portal/login') {
             router.push('/portal/login');
@@ -57,8 +63,8 @@ export default function PortalLayout({
           return;
         }
 
-        console.log('[Layout] Sesión encontrada para:', session.user.email);
-        setUser(session.user);
+        console.log('[Layout] Usuario encontrado:', user.email);
+        setUser(user);
 
         const { data: profileData, error: profileError } = await supabase
           .from('usuarios')
