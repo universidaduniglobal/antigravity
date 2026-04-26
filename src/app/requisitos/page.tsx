@@ -157,12 +157,13 @@ export default function RequisitosPage() {
 
               {/* Call to Action */}
               <div className="text-center md:text-left">
-                <Button asChild className="px-12 py-10 rounded-[2rem] text-xl font-black bg-primary text-white shadow-2xl shadow-primary/30 hover:scale-105 transition-all flex items-center gap-4 group">
-                  <Link href="/inscripcion">
-                    Comenzar Inscripción Digital
-                    <ArrowRight className="group-hover:translate-x-2 transition-transform" />
-                  </Link>
-                </Button>
+                <Link 
+                  href="/inscripcion"
+                  className="inline-flex items-center justify-center px-12 py-10 rounded-[2rem] text-xl font-black bg-primary text-white shadow-2xl shadow-primary/30 hover:scale-105 transition-all gap-4 group"
+                >
+                  Comenzar Inscripción Digital
+                  <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                </Link>
               </div>
             </div>
 
