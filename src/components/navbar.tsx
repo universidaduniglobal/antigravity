@@ -32,7 +32,7 @@ export function Navbar() {
         <div className="hidden md:flex gap-8 items-center text-primary-foreground">
           <Link href="/nosotros" className="text-sm font-medium hover:text-accent transition-colors">Nosotros</Link>
           <Link href="/#carreras" className="text-sm font-medium hover:text-accent transition-colors">Carreras</Link>
-          <Link href="/#admisiones" className="text-sm font-medium hover:text-accent transition-colors">Admisiones</Link>
+          <Link href="/requisitos" className="text-sm font-medium hover:text-accent transition-colors">Admisiones</Link>
           <Link href="/portal/login">
             <Button className="bg-white text-primary hover:bg-white/90 rounded-full px-6 font-semibold">
               Ingreso al Portal
