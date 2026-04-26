@@ -157,13 +157,13 @@ export default function InscripcionPage() {
             {/* 
               Formulario conectado a Formspree
             */}
-            <form 
-              action="https://formspree.io/f/xrerrjbk" 
-              method="POST" 
+            <form
+              action="https://formspree.io/f/xrerrjbk"
+              method="POST"
               encType="multipart/form-data"
               className="space-y-12"
             >
-              
+
               {/* Sección 1: Información Personal */}
               <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
                 <div className="bg-blue-50 dark:bg-blue-950/30 px-8 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center gap-3">
@@ -180,7 +180,7 @@ export default function InscripcionPage() {
                     <input type="date" name="FechaNacimiento" required className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-700 dark:text-slate-300" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Documento de Identidad (Cédula/DNI/Pasaporte) *</label>
+                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Documento de Identidad (Cédula/INE/Pasaporte) *</label>
                     <input type="text" name="DocumentoIdentidad" required className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                   </div>
                   <div className="space-y-2">
@@ -243,7 +243,7 @@ export default function InscripcionPage() {
                       <input type="text" name="TiempoAsistencia" required className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ej. 2 años, 6 meses..." />
                     </div>
                   </div>
-                  
+
                   <div className="space-y-3">
                     <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Áreas de servicio en las que ha participado (Puedes marcar varias) *</label>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
