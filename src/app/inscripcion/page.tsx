@@ -12,11 +12,13 @@ import {
   CheckCircle2, 
   Loader2, 
   AlertCircle,
-  Upload
+  Upload,
+  Fingerprint
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import Link from 'next/link';
 
 export default function InscripcionPage() {
   const [loading, setLoading] = useState(false);
@@ -25,9 +27,11 @@ export default function InscripcionPage() {
 
   // Form State
   const [formData, setFormData] = useState({
-    nombre_completo: '',
+    nombres: '',
+    apellido_paterno: '',
+    apellido_materno: '',
     fecha_nacimiento: '',
-    documento_identidad: '',
+    curp: '',
     email: '',
     telefono: '',
     direccion: '',
@@ -130,12 +134,12 @@ export default function InscripcionPage() {
                 Nuestro equipo de admisiones revisará tu papelería y se pondrá en contacto contigo a través de WhatsApp o Correo Electrónico en un lapso de 24 a 48 horas hábiles.
               </p>
             </div>
-            <a 
+            <Link 
               href="/" 
               className="inline-flex items-center justify-center px-10 py-6 rounded-2xl font-bold bg-primary text-white hover:bg-primary/90 transition-all"
             >
               Volver al Inicio
-            </a>
+            </Link>
           </div>
         </div>
         <Footer />
@@ -184,14 +188,35 @@ export default function InscripcionPage() {
                 </div>
                 <div className="p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2 md:col-span-2">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Nombre Completo *</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Nombre(s) *</label>
                     <input 
                       type="text" 
                       required 
-                      value={formData.nombre_completo}
-                      onChange={e => setFormData({...formData, nombre_completo: e.target.value})}
+                      value={formData.nombres}
+                      onChange={e => setFormData({...formData, nombres: e.target.value})}
                       className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all" 
-                      placeholder="Ej. Juan Pérez García" 
+                      placeholder="Ej. Juan" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Apellido Paterno *</label>
+                    <input 
+                      type="text" 
+                      required 
+                      value={formData.apellido_paterno}
+                      onChange={e => setFormData({...formData, apellido_paterno: e.target.value})}
+                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all" 
+                      placeholder="Ej. Pérez" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Apellido Materno</label>
+                    <input 
+                      type="text" 
+                      value={formData.apellido_materno}
+                      onChange={e => setFormData({...formData, apellido_materno: e.target.value})}
+                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all" 
+                      placeholder="Ej. García" 
                     />
                   </div>
                   <div className="space-y-2">
@@ -205,14 +230,17 @@ export default function InscripcionPage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Documento de Identidad (INE/Pasaporte) *</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                      <Fingerprint size={14} className="text-primary" /> CURP *
+                    </label>
                     <input 
                       type="text" 
                       required 
-                      value={formData.documento_identidad}
-                      onChange={e => setFormData({...formData, documento_identidad: e.target.value})}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all" 
-                      placeholder="Ej. INE 912548755" 
+                      maxLength={18}
+                      value={formData.curp}
+                      onChange={e => setFormData({...formData, curp: e.target.value.toUpperCase()})}
+                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all uppercase" 
+                      placeholder="ABCD123456XXXXXX00" 
                     />
                   </div>
                   <div className="space-y-2">
