@@ -11,8 +11,6 @@ import {
   Info
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Navbar } from '@/components/navbar';
-import { Footer } from '@/components/footer';
 import Link from 'next/link';
 
 export default function RequisitosPage() {
@@ -54,8 +52,6 @@ export default function RequisitosPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950">
-      <Navbar />
-
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-50/50 to-transparent dark:from-blue-950/20 -z-10"></div>
@@ -171,7 +167,6 @@ export default function RequisitosPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }
