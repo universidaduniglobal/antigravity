@@ -113,12 +113,13 @@ export default function BecasPage() {
                 <p className="text-slate-400 text-lg leading-relaxed mb-8">
                   Para acceder a cualquier tipo de apoyo financiero, es indispensable contar con la documentación completa y cumplir con los criterios de elegibilidad.
                 </p>
-                <Button asChild className="px-10 py-8 rounded-2xl text-lg font-black bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all flex items-center gap-4 group">
-                  <Link href="/requisitos">
-                    Ver Proceso de Admisión
-                    <ArrowRight className="group-hover:translate-x-2 transition-transform" />
-                  </Link>
-                </Button>
+                <Link 
+                  href="/requisitos"
+                  className="inline-flex items-center justify-center px-10 py-8 rounded-2xl text-lg font-black bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all gap-4 group"
+                >
+                  Ver Proceso de Admisión
+                  <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                </Link>
               </div>
               <div className="space-y-6">
                 {requisitos.map((req, i) => (
