@@ -13,7 +13,8 @@ import {
   Loader2, 
   AlertCircle,
   Upload,
-  Fingerprint
+  Fingerprint,
+  MessageSquare
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/navbar';
@@ -309,6 +310,17 @@ export default function InscripcionPage() {
                         className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" 
                       />
                     </div>
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Tiempo de asistencia *</label>
+                      <input 
+                        type="text" 
+                        required 
+                        value={formData.tiempo_asistencia}
+                        onChange={e => setFormData({...formData, tiempo_asistencia: e.target.value})}
+                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" 
+                        placeholder="Ej. 2 años, 6 meses..."
+                      />
+                    </div>
                   </div>
                   
                   <div className="space-y-4">
@@ -363,8 +375,8 @@ export default function InscripcionPage() {
                       className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
                     >
                       <option value="">Selecciona una opción...</option>
-                      <option value="Presencial">Presencial (Sábados)</option>
-                      <option value="Virtual">Virtual (En línea)</option>
+                      <option value="Presencial">Presencial</option>
+                      <option value="Virtual">Virtual</option>
                       <option value="Híbrido">Híbrido</option>
                     </select>
                   </div>
@@ -379,7 +391,7 @@ export default function InscripcionPage() {
                   </div>
                   <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">Documentación (Opcional por ahora)</h2>
                 </div>
-                <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-slate-100 dark:border-slate-800">
                   <div className="space-y-4">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest block">Identificación Oficial</label>
                     <div className="relative group">
@@ -425,6 +437,21 @@ export default function InscripcionPage() {
                       </label>
                     </div>
                   </div>
+                </div>
+
+                {/* Campo de Comentarios */}
+                <div className="p-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <MessageSquare size={18} className="text-orange-600" />
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Comentarios u observaciones opcionales</label>
+                  </div>
+                  <textarea 
+                    value={formData.comentarios}
+                    onChange={e => setFormData({...formData, comentarios: e.target.value})}
+                    rows={4}
+                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all resize-none" 
+                    placeholder="¿Algún detalle adicional que debamos saber?"
+                  ></textarea>
                 </div>
               </div>
 
