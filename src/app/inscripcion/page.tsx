@@ -2,15 +2,15 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { 
-  User, 
-  MapPin, 
-  Church, 
-  BookOpen, 
-  FileText, 
-  Send, 
-  CheckCircle2, 
-  Loader2, 
+import {
+  User,
+  MapPin,
+  Church,
+  BookOpen,
+  FileText,
+  Send,
+  CheckCircle2,
+  Loader2,
   AlertCircle,
   Upload,
   Fingerprint,
@@ -67,13 +67,13 @@ export default function InscripcionPage() {
     const { data, error } = await supabase.storage
       .from('inscripciones')
       .upload(`${folder}/${fileName}`, file);
-    
+
     if (error) throw error;
-    
+
     const { data: { publicUrl } } = supabase.storage
       .from('inscripciones')
       .getPublicUrl(data.path);
-      
+
     return publicUrl;
   };
 
@@ -132,14 +132,14 @@ export default function InscripcionPage() {
                 Nuestro equipo de admisiones revisará tu papelería y se pondrá en contacto contigo a través de WhatsApp o Correo Electrónico en un lapso de 24 a 48 horas hábiles.
               </p>
             </div>
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="inline-flex items-center justify-center px-10 py-6 rounded-2xl font-bold bg-primary text-white hover:bg-primary/90 transition-all"
             >
               Volver al Inicio
             </Link>
+          </div>
         </div>
-      </div>
       </div>
     );
   }
@@ -163,7 +163,7 @@ export default function InscripcionPage() {
       <section className="py-12 md:py-20 bg-slate-50 dark:bg-slate-950">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            
+
             {error && (
               <div className="mb-8 p-6 bg-red-50 border border-red-100 text-red-700 rounded-3xl flex items-center gap-4 animate-shake">
                 <AlertCircle />
@@ -172,7 +172,7 @@ export default function InscripcionPage() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-12">
-              
+
               {/* Sección 1: Información Personal */}
               <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
                 <div className="bg-blue-50/50 dark:bg-blue-900/10 px-10 py-6 border-b border-slate-100 dark:border-slate-800 flex items-center gap-4">
@@ -184,90 +184,90 @@ export default function InscripcionPage() {
                 <div className="p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2 md:col-span-2">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Nombre(s) *</label>
-                    <input 
-                      type="text" 
-                      required 
+                    <input
+                      type="text"
+                      required
                       value={formData.nombres}
-                      onChange={e => setFormData({...formData, nombres: e.target.value})}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all" 
-                      placeholder="Ej. Juan" 
+                      onChange={e => setFormData({ ...formData, nombres: e.target.value })}
+                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                      placeholder="Ej. Juan"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Apellido Paterno *</label>
-                    <input 
-                      type="text" 
-                      required 
+                    <input
+                      type="text"
+                      required
                       value={formData.apellido_paterno}
-                      onChange={e => setFormData({...formData, apellido_paterno: e.target.value})}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all" 
-                      placeholder="Ej. Pérez" 
+                      onChange={e => setFormData({ ...formData, apellido_paterno: e.target.value })}
+                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                      placeholder="Ej. Pérez"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Apellido Materno</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       value={formData.apellido_materno}
-                      onChange={e => setFormData({...formData, apellido_materno: e.target.value})}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all" 
-                      placeholder="Ej. García" 
+                      onChange={e => setFormData({ ...formData, apellido_materno: e.target.value })}
+                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                      placeholder="Ej. García"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Fecha de Nacimiento *</label>
-                    <input 
-                      type="date" 
-                      required 
+                    <input
+                      type="date"
+                      required
                       value={formData.fecha_nacimiento}
-                      onChange={e => setFormData({...formData, fecha_nacimiento: e.target.value})}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all" 
+                      onChange={e => setFormData({ ...formData, fecha_nacimiento: e.target.value })}
+                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
                       <Fingerprint size={14} className="text-primary" /> CURP *
                     </label>
-                    <input 
-                      type="text" 
-                      required 
+                    <input
+                      type="text"
+                      required
                       maxLength={18}
                       value={formData.curp}
-                      onChange={e => setFormData({...formData, curp: e.target.value.toUpperCase()})}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all uppercase" 
-                      placeholder="ABCD123456XXXXXX00" 
+                      onChange={e => setFormData({ ...formData, curp: e.target.value.toUpperCase() })}
+                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all uppercase"
+                      placeholder="ABCD123456XXXXXX00"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Correo Electrónico *</label>
-                    <input 
-                      type="email" 
-                      required 
+                    <input
+                      type="email"
+                      required
                       value={formData.email}
-                      onChange={e => setFormData({...formData, email: e.target.value})}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all" 
-                      placeholder="tu@correo.com" 
+                      onChange={e => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                      placeholder="tu@correo.com"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Número de WhatsApp *</label>
-                    <input 
-                      type="tel" 
-                      required 
+                    <input
+                      type="tel"
+                      required
                       value={formData.telefono}
-                      onChange={e => setFormData({...formData, telefono: e.target.value})}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all" 
-                      placeholder="+52 ..." 
+                      onChange={e => setFormData({ ...formData, telefono: e.target.value })}
+                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                      placeholder="+52 ..."
                     />
                   </div>
                   <div className="space-y-2 md:col-span-2">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Dirección Completa *</label>
-                    <textarea 
-                      required 
-                      rows={3} 
+                    <textarea
+                      required
+                      rows={3}
                       value={formData.direccion}
-                      onChange={e => setFormData({...formData, direccion: e.target.value})}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none" 
+                      onChange={e => setFormData({ ...formData, direccion: e.target.value })}
+                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
                       placeholder="Calle, número, colonia, ciudad, código postal..."
                     ></textarea>
                   </div>
@@ -286,45 +286,45 @@ export default function InscripcionPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Iglesia a la que asiste *</label>
-                      <input 
-                        type="text" 
-                        required 
+                      <input
+                        type="text"
+                        required
                         value={formData.iglesia_asiste}
-                        onChange={e => setFormData({...formData, iglesia_asiste: e.target.value})}
-                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" 
+                        onChange={e => setFormData({ ...formData, iglesia_asiste: e.target.value })}
+                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
                       />
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Nombre de su Pastor *</label>
-                      <input 
-                        type="text" 
-                        required 
+                      <input
+                        type="text"
+                        required
                         value={formData.pastor}
-                        onChange={e => setFormData({...formData, pastor: e.target.value})}
-                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" 
+                        onChange={e => setFormData({ ...formData, pastor: e.target.value })}
+                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
                       />
                     </div>
                     <div className="space-y-2 md:col-span-2">
                       <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Tiempo de asistencia *</label>
-                      <input 
-                        type="text" 
-                        required 
+                      <input
+                        type="text"
+                        required
                         value={formData.tiempo_asistencia}
-                        onChange={e => setFormData({...formData, tiempo_asistencia: e.target.value})}
-                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" 
+                        onChange={e => setFormData({ ...formData, tiempo_asistencia: e.target.value })}
+                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
                         placeholder="Ej. 2 años, 6 meses..."
                       />
                     </div>
                   </div>
-                  
+
                   <div className="space-y-4">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Áreas de servicio en las que ha participado</label>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {areasDisponibles.map((area) => (
                         <label key={area} className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl cursor-pointer hover:bg-slate-100 transition-all border border-transparent has-[:checked]:border-emerald-500 has-[:checked]:bg-emerald-50/50">
-                          <input 
-                            type="checkbox" 
-                            className="w-5 h-5 rounded-lg border-slate-300 text-emerald-600 focus:ring-emerald-500" 
+                          <input
+                            type="checkbox"
+                            className="w-5 h-5 rounded-lg border-slate-300 text-emerald-600 focus:ring-emerald-500"
                             checked={formData.areas_servicio.includes(area)}
                             onChange={() => handleCheckboxChange(area)}
                           />
@@ -347,10 +347,10 @@ export default function InscripcionPage() {
                 <div className="p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Carrera de Interés *</label>
-                    <select 
-                      required 
+                    <select
+                      required
                       value={formData.carrera_interes}
-                      onChange={e => setFormData({...formData, carrera_interes: e.target.value})}
+                      onChange={e => setFormData({ ...formData, carrera_interes: e.target.value })}
                       className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
                     >
                       <option value="">Selecciona una opción...</option>
@@ -362,10 +362,10 @@ export default function InscripcionPage() {
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Modalidad *</label>
-                    <select 
-                      required 
+                    <select
+                      required
                       value={formData.modalidad_interes}
-                      onChange={e => setFormData({...formData, modalidad_interes: e.target.value})}
+                      onChange={e => setFormData({ ...formData, modalidad_interes: e.target.value })}
                       className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
                     >
                       <option value="">Selecciona una opción...</option>
@@ -389,11 +389,11 @@ export default function InscripcionPage() {
                   <div className="space-y-4">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest block">Identificación Oficial</label>
                     <div className="relative group">
-                      <input 
-                        type="file" 
-                        className="hidden" 
-                        id="file-id" 
-                        onChange={e => setFiles({...files, identificacion: e.target.files?.[0] || null})}
+                      <input
+                        type="file"
+                        className="hidden"
+                        id="file-id"
+                        onChange={e => setFiles({ ...files, identificacion: e.target.files?.[0] || null })}
                       />
                       <label htmlFor="file-id" className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-[2rem] cursor-pointer hover:border-primary hover:bg-slate-50 transition-all">
                         <Upload className="text-slate-400 mb-2 group-hover:text-primary transition-colors" />
@@ -404,11 +404,11 @@ export default function InscripcionPage() {
                   <div className="space-y-4">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest block">Comprobante de Estudios</label>
                     <div className="relative group">
-                      <input 
-                        type="file" 
-                        className="hidden" 
-                        id="file-study" 
-                        onChange={e => setFiles({...files, estudios: e.target.files?.[0] || null})}
+                      <input
+                        type="file"
+                        className="hidden"
+                        id="file-study"
+                        onChange={e => setFiles({ ...files, estudios: e.target.files?.[0] || null })}
                       />
                       <label htmlFor="file-study" className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-[2rem] cursor-pointer hover:border-primary hover:bg-slate-50 transition-all">
                         <Upload className="text-slate-400 mb-2 group-hover:text-primary transition-colors" />
@@ -419,11 +419,11 @@ export default function InscripcionPage() {
                   <div className="space-y-4">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest block">Foto para Credencial</label>
                     <div className="relative group">
-                      <input 
-                        type="file" 
-                        className="hidden" 
-                        id="file-photo" 
-                        onChange={e => setFiles({...files, foto: e.target.files?.[0] || null})}
+                      <input
+                        type="file"
+                        className="hidden"
+                        id="file-photo"
+                        onChange={e => setFiles({ ...files, foto: e.target.files?.[0] || null })}
                       />
                       <label htmlFor="file-photo" className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-[2rem] cursor-pointer hover:border-primary hover:bg-slate-50 transition-all">
                         <Upload className="text-slate-400 mb-2 group-hover:text-primary transition-colors" />
@@ -439,11 +439,11 @@ export default function InscripcionPage() {
                     <MessageSquare size={18} className="text-orange-600" />
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Comentarios u observaciones opcionales</label>
                   </div>
-                  <textarea 
+                  <textarea
                     value={formData.comentarios}
-                    onChange={e => setFormData({...formData, comentarios: e.target.value})}
+                    onChange={e => setFormData({ ...formData, comentarios: e.target.value })}
                     rows={4}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all resize-none" 
+                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all resize-none"
                     placeholder="¿Algún detalle adicional que debamos saber?"
                   ></textarea>
                 </div>
@@ -451,8 +451,8 @@ export default function InscripcionPage() {
 
               {/* Botón de envío */}
               <div className="text-center pb-20">
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   disabled={loading}
                   className="bg-primary text-white text-xl font-black px-16 py-10 rounded-[2rem] shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all flex items-center gap-4 mx-auto"
                 >
