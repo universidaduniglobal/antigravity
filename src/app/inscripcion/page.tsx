@@ -15,8 +15,8 @@ import {
   Upload
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
+import { Navbar } from '@/components/navbar';
+import { Footer } from '@/components/footer';
 
 export default function InscripcionPage() {
   const [loading, setLoading] = useState(false);
