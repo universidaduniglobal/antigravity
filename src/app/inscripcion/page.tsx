@@ -130,9 +130,12 @@ export default function InscripcionPage() {
                 Nuestro equipo de admisiones revisará tu papelería y se pondrá en contacto contigo a través de WhatsApp o Correo Electrónico en un lapso de 24 a 48 horas hábiles.
               </p>
             </div>
-            <Button asChild className="px-10 py-6 rounded-2xl font-bold bg-primary hover:bg-primary/90 transition-all">
-              <a href="/">Volver al Inicio</a>
-            </Button>
+            <a 
+              href="/" 
+              className="inline-flex items-center justify-center px-10 py-6 rounded-2xl font-bold bg-primary text-white hover:bg-primary/90 transition-all"
+            >
+              Volver al Inicio
+            </a>
           </div>
         </div>
         <Footer />
