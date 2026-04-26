@@ -181,7 +181,7 @@ export default function Home() {
               Solicitar Información
             </Link>
             <Link 
-              href="/inscripcion"
+              href="/requisitos"
               className="inline-flex items-center justify-center whitespace-nowrap transition-colors rounded-full px-8 text-lg h-14 bg-white text-primary hover:bg-white/90 font-bold"
             >
               Requisitos de Admisión
