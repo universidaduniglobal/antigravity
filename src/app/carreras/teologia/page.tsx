@@ -115,13 +115,19 @@ export default function TeologiaPage() {
               </div>
             </div>
 
-            {/* Botón Plan de Estudios */}
-            <div className="text-center mb-16">
+            {/* Botones de Acción */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-16">
               <Link
                 href="/carreras/teologia/plan-de-estudios"
-                className="inline-flex items-center justify-center whitespace-nowrap bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-10 text-lg h-14 shadow-lg font-bold transition-transform hover:scale-105"
+                className="w-full md:w-auto inline-flex items-center justify-center whitespace-nowrap bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-10 text-lg h-14 shadow-lg font-bold transition-transform hover:scale-105"
               >
                 Ver Plan de Estudios
+              </Link>
+              <Link
+                href="/requisitos"
+                className="w-full md:w-auto inline-flex items-center justify-center whitespace-nowrap bg-white text-primary border-2 border-primary hover:bg-primary/5 rounded-full px-10 text-lg h-14 shadow-lg font-bold transition-transform hover:scale-105"
+              >
+                Requisitos para Inscripción
               </Link>
             </div>
 
