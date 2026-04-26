@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Universidad UniGlobal",
   description: "Descubre tu futuro, construye tu presente. Formación integral con valores cristianos.",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
