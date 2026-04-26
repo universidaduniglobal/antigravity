@@ -68,11 +68,15 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <Phone size={18} className="text-accent shrink-0" />
-              <span>+52 662 405 3624</span>
+              <a href="https://wa.me/526624053624" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                +52 662 405 3624
+              </a>
             </li>
             <li className="flex items-center gap-3">
               <Mail size={18} className="text-accent shrink-0" />
-              <span>uniglobalmx@gmail.com</span>
+              <a href="mailto:uniglobalmx@gmail.com" className="hover:text-accent transition-colors">
+                uniglobalmx@gmail.com
+              </a>
             </li>
           </ul>
         </div>
